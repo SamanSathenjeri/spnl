@@ -15,7 +15,7 @@ lisp = ["dep:serde-lexpr"]
 ollama = ["openai"]
 openai = ["dep:async-openai","dep:tokio","dep:tokio-stream"]
 gemini = ["openai"]
-openssl-vendored = ["dep:openssl"]
+openssl-vendored = ["dep:openssl", "dep:openssl-probe"]
 pull = ["dep:duct","dep:fs4","dep:reqwest"]
 pypi = ["tok","dep:pyo3","pyo3/extension-module"]
 rag = ["run","dep:sha2", "dep:lancedb","dep:tracing","dep:arrow-schema","dep:arrow-array","dep:itertools","dep:pdf-extract","dep:async-recursion","dep:regex"]
@@ -55,6 +55,7 @@ derive_builder = "0.20.2"
 moka = { version = "0.12.10", features = ["sync"], optional = true }
 reqwest = { version = "0.12.20", features = ["json"], optional = true }
 openssl = { version = "0.10", features = ["vendored"], optional = true }
+openssl-probe = { version = "0.1", optional = true }
 thiserror = "2.0.14"
 atoi = "2.0.0"
 clap = { version = "4.5.45", features = ["env"] }
