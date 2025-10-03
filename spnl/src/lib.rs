@@ -1,14 +1,12 @@
 mod query;
+use pyo3::prelude::*;
 pub use query::*;
 
 #[cfg(feature = "openssl-vendored")]
-use openssl_probe;
-
-use pyo3::prelude::*;
-
-#[cfg(feature = "openssl-vendored")]
 fn probe_ssl_certs() {
-    openssl_probe::init_ssl_cert_env_vars();
+    unsafe {
+        openssl_probe::init_openssl_env_vars();
+    }
 }
 
 #[cfg(not(feature = "openssl-vendored"))]
