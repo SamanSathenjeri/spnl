@@ -6527,6 +6527,7 @@ dependencies = [
  "lancedb",
  "moka",
  "openssl",
+ "openssl-probe",
  "pdf-extract",
  "ptree",
  "pyo3",
