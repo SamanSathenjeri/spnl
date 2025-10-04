@@ -9,9 +9,3 @@ pre-build = [
     "dpkg --add-architecture $CROSS_DEB_ARCH",
     "apt-get update && apt-get --assume-yes install libssl-dev:$CROSS_DEB_ARCH"
 ]
-
-[package]
-name = "workspace"
-version = "0.0.0"
-edition = "2021"
-publish = false
