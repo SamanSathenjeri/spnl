@@ -8,6 +8,9 @@ name: publish_pypi
 on:
   release:
     types: [published]
+  push:
+    branches:
+      - 'test/pypi-musl' # Your dedicated testing branch
 
 permissions:
   contents: read
