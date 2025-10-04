@@ -83,11 +83,15 @@ jobs:
           else
             echo "enabled=--features openssl-vendored" >> $GITHUB_OUTPUT
           fi
+      - name: Debug paths
+        run: |
+          pwd
+          ls -R
       - name: Build wheels
         uses: PyO3/maturin-action@v1 #./maturin-action
         with:
           target: ${{ matrix.platform.target }}
-          args: --release --out dist --find-interpreter --manifest-path spnl/Cargo.toml
+          args: --release --out dist --find-interpreter --manifest-path spnl/Cargo.toml ${{ steps.is-openssl-vendored.outputs.enabled }}
           sccache: ${{ !startsWith(github.ref, 'refs/tags/') }}
           manylinux: auto #musllinux_1_2
       - name: Upload wheels
