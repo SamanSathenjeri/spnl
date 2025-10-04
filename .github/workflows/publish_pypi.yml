@@ -83,10 +83,10 @@ jobs:
           else
             echo "enabled=--features openssl-vendored" >> $GITHUB_OUTPUT
           fi
-      - name: Debug paths
-        run: |
-          pwd
-          ls -R
+      # - name: Debug paths
+      #   run: |
+      #     pwd
+      #     ls -R
       - name: Build wheels
         uses: PyO3/maturin-action@v1 #./maturin-action
         with:
