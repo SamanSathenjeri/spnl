@@ -78,8 +78,7 @@ jobs:
         shell: bash
         id: is-openssl-vendored
         run: |
-          if [[ "${{ startsWith(matrix.target, 'x86') }}" == "true"]]
-          then
+          if [[ "${{ startsWith(matrix.target, 'x86') }}" == "true" ]]; then
             echo "enabled=" >> $GITHUB_OUTPUT
           else
             echo "enabled=--features openssl-vendored" >> $GITHUB_OUTPUT
